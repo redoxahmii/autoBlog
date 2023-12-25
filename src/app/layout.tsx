@@ -16,7 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="emerald">
+      <link rel="icon" href="/icon.svg" sizes="any" />
       <body className={inter.className}>
         <Navbar />
         <div className="mx-auto container">{children}</div>

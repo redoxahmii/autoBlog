@@ -1,4 +1,4 @@
-import { Article } from "@/types/types";
+import { BbcArticle } from "@/types/types";
 import type { Metadata } from "next";
 
 export const generateMetadata = async (props: any): Promise<Metadata> => {
@@ -11,7 +11,7 @@ export const generateMetadata = async (props: any): Promise<Metadata> => {
 };
 
 export default async function blogDetail({ params }: Params) {
-  const article: Article = await getArticle(params.docId);
+  const article: BbcArticle = await getArticle(params.docId);
   if (!article) return null;
   return (
     <div className="mt-24 flex flex-col gap-8 items-center justify-center">
@@ -30,12 +30,12 @@ export default async function blogDetail({ params }: Params) {
 }
 
 async function getArticle(id: string) {
-  const res = await fetch("https://rss-feed-delta.vercel.app/html", {
+  const res = await fetch(`${process.env.NEXT_BBC_LINK}`, {
     cache: "no-store",
   }).then((res) => res.json());
   const AllArticles = res.data;
   const foundDocument = AllArticles.find(
-    (article: Article) => article.docId === id,
+    (article: BbcArticle) => article.docId === id,
   );
   return foundDocument;
 }

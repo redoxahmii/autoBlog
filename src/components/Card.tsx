@@ -5,13 +5,14 @@ import { useRouter } from "next/navigation";
 import placehold from "../../public/placeHold.png";
 type CardProps = {
   title: string;
-  id: string;
+  description: string;
+  href: string;
   img: string | null;
 };
-export default function Card({ title, id, img }: CardProps) {
+export default function Card({ title, img, href, description }: CardProps) {
   const router = useRouter();
   function handleClick() {
-    router.push(`/blog/${id}`);
+    router.push(href);
   }
   return (
     <div className="card w-96 bg-base-100 shadow-xl ">
@@ -27,7 +28,7 @@ export default function Card({ title, id, img }: CardProps) {
           {title}
           <div className="badge badge-secondary">NEW</div>
         </h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+        <p className="truncate">{description}</p>
         <div className="card-actions justify-end">
           <button className="btn btn-md btn-primary" onClick={handleClick}>
             Read

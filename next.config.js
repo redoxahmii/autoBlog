@@ -8,6 +8,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "enews.hamariweb.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
