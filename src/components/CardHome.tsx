@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import img from "../../public/placeHold.png";
 
-export default function CardHome({ article }: { article: Article }) {
+export default function CardHome({ article }: { article: BbcArticle }) {
   return (
     <Link href={`blog/foreign/${article.docId}`}>
       <div className="flex hover:bg-base-200 p-4 w-full max-w-3xl rounded-xl transition-all cursor-pointer justify-around items-center">
