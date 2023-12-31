@@ -13,23 +13,30 @@ export default function Navbar() {
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link href="/blog" className="flex gap-1">
+            <Link href="/articles" className="flex gap-1">
               <Mailbox />
               All Articles
             </Link>
           </li>
           <li>
-            <Link href="/blog/pakistan" className="flex gap-1">
+            <Link href="/articles/pakistan" className="flex gap-1">
               <Mailbox />
-              Pakistani Articles
+              Pakistani News
             </Link>
           </li>
           <li>
-            <Link href="/blog/foreign" className="flex gap-1">
+            <Link href="/articles/foreign" className="flex gap-1">
               <Mailbox />
-              BBC Articles
+              BBC News
             </Link>
           </li>
+          <li>
+            <Link href="/articles/tribune" className="flex gap-1">
+              <Mailbox />
+              Tribune News
+            </Link>
+          </li>
+
           <label className="cursor-pointer grid place-items-center">
             <input
               type="checkbox"

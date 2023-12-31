@@ -2,7 +2,7 @@ import Card from "@/components/Card";
 import { BbcArticle } from "@/types/types";
 export default async function Blog() {
   const res = await fetch(`${process.env.NEXT_BBC_LINK}`, {
-    cache: "no-store",
+    next: { revalidate: 7200 },
   }).then((res) => res.json());
 
   return (
@@ -12,7 +12,7 @@ export default async function Blog() {
         {res.data.map((article: BbcArticle) => (
           <Card
             description={article.description}
-            href={`/blog/foreign/${article.docId}`}
+            href={`/articles/foreign/${article.docId}`}
             key={article.url}
             title={article.title}
             img={article.img}

@@ -15,7 +15,7 @@ export default function Card({ title, img, href, description }: CardProps) {
     router.push(href);
   }
   return (
-    <div className="card w-96 bg-base-100 shadow-xl ">
+    <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
         {img ? (
           <Image src={img} alt={title} width={384} height={384} />
@@ -24,13 +24,10 @@ export default function Card({ title, img, href, description }: CardProps) {
         )}
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
-          {title}
-          <div className="badge badge-secondary">NEW</div>
-        </h2>
+        <h2 className="card-title">{title}</h2>
         <p className="truncate">{description}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-md btn-primary" onClick={handleClick}>
+          <button className="btn btn-secondary" onClick={handleClick}>
             Read
           </button>
         </div>

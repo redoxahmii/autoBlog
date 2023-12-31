@@ -5,7 +5,7 @@ import img from "../../public/placeHold.png";
 
 export default function CardHome({ article }: { article: BbcArticle }) {
   return (
-    <Link href={`blog/foreign/${article.docId}`}>
+    <Link href={`articles/foreign/${article.docId}`}>
       <div className="flex hover:bg-base-200 p-4 w-full max-w-3xl rounded-xl transition-all cursor-pointer justify-around items-center">
         <div className="max-w-xl">
           <h1 className="font-bold">{article.title}</h1>
