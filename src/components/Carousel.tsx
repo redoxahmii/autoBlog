@@ -80,9 +80,8 @@ const Carousel = () => {
 
         {/* Repeat for other slides */}
       </div>
-      <div className="z-20 items-center justify-center flex ">
+      <div className="z-20 items-center justify-center flex">
         <h2 className="font-bold">{slides[currentSlide].title}</h2>
-        h1 className="font-semibold">{title}</h1>
       </div>
     </div>
   );
