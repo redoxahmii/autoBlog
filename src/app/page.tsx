@@ -17,6 +17,7 @@ export default async function Home() {
   return (
     <div className=" flex">
       <div className="flex-[3] p-2 flex-col flex pl-32 mt-5 gap-2 ">
+        test
         {Foreign.data.map((article: TribuneArticle) => (
           <CardHome article={article} key={article.docId} />
         ))}
