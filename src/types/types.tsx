@@ -18,7 +18,7 @@ export type HamariArticle = {
   category: string[];
   content: string;
   content_encoded: string;
-  media: Record<string, any>; // You may want to define a specific type for media
+  media: Record<string, any>;
 };
 
 export type TribuneArticle = {
@@ -44,9 +44,9 @@ export type NewsArticle = {
   created: number;
   category: string;
   content: string;
-  enclosures: any[]; // You may want to replace 'any' with a specific type if you know the structure of enclosures
+  enclosures: any[];
   content_encoded: string;
-  media: Record<string, any>; // You may want to replace 'any' with a specific type if you know the structure of media
+  media: Record<string, any>;
 };
 
 export const tribuneTypes = [

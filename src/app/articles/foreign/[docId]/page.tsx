@@ -18,7 +18,7 @@ export default async function blogDetail({ params }: Params) {
   const article = data.foundDocument;
   if (!article) return null;
   return (
-    <div className="flex mt-28 flex-col gap-8 pb-10 px-20">
+    <div className="flex mt-10 flex-col gap-8 pb-10 px-20">
       <div className="flex gap-5 flex-col">
         <h1 className="text-5xl font-bold">{article.title}</h1>
         <h3 className="text-xl truncate">{article.description}</h3>

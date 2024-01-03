@@ -1,15 +1,23 @@
-import { BbcArticle } from "@/types/types";
+import { TribuneArticle } from "@/types/types";
 import CardHome from "@/components/CardHome";
 import Sidebar from "@/components/Sidebar";
 
 export default async function Home() {
-  const Foreign = await fetch(`${process.env.NEXT_BBC_LINK}`, {
+  const Foreign = await fetch(`${process.env.NEXT_TRIBUNE_LINK}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      tribune: `home`,
+    }),
     next: { revalidate: 7200 },
   }).then((res) => res.json());
   return (
-    <div className="mt-20 flex">
-      <div className="flex-[3] p-2 flex-col flex pl-32 mt-10 gap-2">
-        {Foreign.data.map((article: BbcArticle) => (
+    <div className=" flex">
+      <div className="flex-[3] p-2 flex-col flex pl-32 mt-5 gap-2 ">
+        {Foreign.data.map((article: TribuneArticle) => (
           <CardHome article={article} key={article.docId} />
         ))}
       </div>

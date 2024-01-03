@@ -23,28 +23,23 @@ export default async function Sidebar() {
 
 const topics = [
   {
-    title: "Foreign News",
+    title: "BBC",
     id: 1,
     href: "/foreign",
   },
   {
-    title: "Pakistan News",
+    title: "HamariWeb",
     id: 2,
     href: "/pakistan",
   },
   {
-    title: "Tribune News",
+    title: "Tribune",
     id: 3,
     href: "/tribune",
   },
   {
-    title: "Self Improvement",
+    title: "Tribune Sports",
     id: 4,
-    href: "/foreign",
-  },
-  {
-    title: "Writing",
-    id: 5,
-    href: "/foreign",
+    href: "/tribune/sports",
   },
 ];

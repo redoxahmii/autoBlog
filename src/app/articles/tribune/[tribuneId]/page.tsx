@@ -3,11 +3,11 @@ import Card from "@/components/Card";
 export default async function TribuneTypes({ params }: Params) {
   const allArticles = await getAllArticles(params.tribuneId);
   return (
-    <div className="mt-24 flex items-center gap-4 justify-center flex-col w-full">
-      <h1 className="text-5xl font-bold">
-        {params.tribuneId} tribune Articles
+    <div className="flex items-center gap-4 justify-center flex-col w-full">
+      <h1 className="text-5xl font-bold mt-10 mb-10">
+        {params.tribuneId.toUpperCase().charAt(0) + params.tribuneId.slice(1)}
       </h1>
-      <div className="flex gap-2 items-center justify-center flex-wrap">
+      <div className="flex gap-10 items-center justify-center flex-wrap">
         {allArticles.map((article: TribuneArticle) => (
           <Card
             description={article.description}

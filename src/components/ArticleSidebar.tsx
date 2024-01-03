@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import placehold from "../../public/placeHold.png";
+import placehold from "../../public/placehold.jpg";
 
 type ArticleSidebarProps = {
   title: string;

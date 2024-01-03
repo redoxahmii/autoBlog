@@ -16,10 +16,10 @@ export const generateMetadata = async (props: any): Promise<Metadata> => {
 
 export default async function TribuneBlogDetail({ params }: Params) {
   const data = await getArticle(params.docId, params.tribuneId);
-  const article = data.foundDocument;
+  const article: TribuneArticle = data.foundDocument;
   if (!article) return null;
   return (
-    <div className="flex mt-28 flex-col gap-8 pb-10 px-20">
+    <div className="flex mt-10 flex-col gap-8 pb-10 px-20">
       <div className="flex gap-5 flex-col">
         <h1 className="text-5xl font-bold">{article.title}</h1>
         <h3 className="text-xl truncate">{article.description}</h3>
@@ -49,7 +49,7 @@ export default async function TribuneBlogDetail({ params }: Params) {
             />
           )}
           <div
-            dangerouslySetInnerHTML={{ __html: article.content }}
+            dangerouslySetInnerHTML={{ __html: article.content_encoded }}
             className="prose lg:prose-xl prose-base"
           ></div>
         </div>
