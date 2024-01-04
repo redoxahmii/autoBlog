@@ -3,9 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import img from "../../public/placehold.jpg";
 
-export default function CardHome({ article }: { article: TribuneArticle }) {
+export default function CardHome({
+  article,
+  type,
+}: {
+  article: TribuneArticle;
+  type: string;
+}) {
   return (
-    <Link href={`articles/tribune/home/${article.docId}`}>
+    <Link href={`articles/tribune/${type}/${article.docId}`}>
       <div className="flex hover:bg-base-200 p-4 w-full max-w-3xl rounded-xl transition-all cursor-pointer justify-between items-center">
         <div className="max-w-md ">
           <h1 className="font-bold">{article.title}</h1>
