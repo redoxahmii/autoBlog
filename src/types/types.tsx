@@ -33,21 +33,6 @@ export type TribuneArticle = {
   content: string;
   content_encoded: string;
 };
-export type NewsArticle = {
-  id: string;
-  title: string;
-  imgSrc: string;
-  docId: string;
-  description: string;
-  link: string;
-  published: number;
-  created: number;
-  category: string;
-  content: string;
-  enclosures: any[];
-  content_encoded: string;
-  media: Record<string, any>;
-};
 
 export const tribuneTypes = [
   {

@@ -58,10 +58,6 @@ export default async function TribuneBlogDetail({ params }: Params) {
   );
 }
 
-/**
- * @param id - [TODO: limit number of articles sent back]
- * @returns [TODO: AllArticle,foundDocument]
- */
 async function getArticle(id: string, type: string) {
   const res = await fetch(`${process.env.NEXT_TRIBUNE_LINK}`, {
     method: "POST",
