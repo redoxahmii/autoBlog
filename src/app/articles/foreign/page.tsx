@@ -4,7 +4,7 @@ import { sortByPublishedDescBBC } from "@/utils/arraytime";
 
 export default async function Blog() {
   const res = await fetch(`${process.env.NEXT_BBC_LINK}`, {
-    cache: "no-store",
+    next: { revalidate: 7200 },
   }).then((res) => res.json());
   res.data.sort(sortByPublishedDescBBC);
 
