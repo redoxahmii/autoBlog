@@ -1,5 +1,7 @@
 import { TribuneArticle } from "@/types/types";
 import Card from "@/components/Card";
+import { sortByPublishedDescTri } from "@/utils/arraytime";
+
 export default async function TribuneTypes({ params }: Params) {
   const allArticles = await getAllArticles(params.tribuneId);
   return (
@@ -10,6 +12,7 @@ export default async function TribuneTypes({ params }: Params) {
       <div className="flex gap-10 items-center justify-center flex-wrap">
         {allArticles.map((article: TribuneArticle) => (
           <Card
+            published={article.published}
             description={article.description}
             href={`/articles/tribune/${params.tribuneId}/${article.docId}`}
             key={article.docId}
@@ -33,6 +36,7 @@ async function getAllArticles(type: string) {
     }),
     next: { revalidate: 7200 },
   }).then((res) => res.json());
+  res.data.sort(sortByPublishedDescTri);
   return res.data;
 }
 type Params = {

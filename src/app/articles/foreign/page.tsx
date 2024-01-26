@@ -1,9 +1,12 @@
 import Card from "@/components/Card";
 import { BbcArticle } from "@/types/types";
+import { sortByPublishedDescBBC } from "@/utils/arraytime";
+
 export default async function Blog() {
   const res = await fetch(`${process.env.NEXT_BBC_LINK}`, {
-    next: { revalidate: 7200 },
+    cache: "no-store",
   }).then((res) => res.json());
+  res.data.sort(sortByPublishedDescBBC);
 
   return (
     <div className="flex items-center gap-4 justify-center flex-col w-full">
@@ -11,6 +14,7 @@ export default async function Blog() {
       <div className="flex gap-10 items-center justify-center flex-wrap">
         {res.data.map((article: BbcArticle) => (
           <Card
+            published={article.time}
             description={article.description}
             href={`/articles/foreign/${article.docId}`}
             key={article.url}
