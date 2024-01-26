@@ -1,6 +1,5 @@
 import { TribuneArticle } from "@/types/types";
 import CardHome from "@/components/CardHome";
-import { sortByPublishedDescTri } from "@/utils/arraytime";
 
 /**
  * [TODO: Arrange all articles according to time]
@@ -32,6 +31,10 @@ export default async function Home() {
   }).then((res) => res.json());
 
   // Sort the Foreign.data and Sports.data arrays
+  // INFO: This might be running on server which is not letting it deploy
+  const sortByPublishedDescTri = (a: TribuneArticle, b: TribuneArticle) =>
+    new Date(b.published).getTime() - new Date(a.published).getTime();
+
   Foreign.data.sort(sortByPublishedDescTri);
   Sports.data.sort(sortByPublishedDescTri);
 

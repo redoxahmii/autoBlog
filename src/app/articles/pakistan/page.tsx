@@ -1,10 +1,11 @@
 import { HamariArticle } from "@/types/types";
 import Card from "@/components/Card";
-import { sortByPublishedDescTri } from "@/utils/arraytime";
 export default async function PakArticles() {
   const res = await fetch(`${process.env.NEXT_HAMARI_LINK}`, {
     next: { revalidate: 7200 },
   }).then((res) => res.json());
+  const sortByPublishedDescTri = (a: any, b: any) =>
+    new Date(b.published).getTime() - new Date(a.published).getTime();
   res.data.sort(sortByPublishedDescTri);
 
   return (

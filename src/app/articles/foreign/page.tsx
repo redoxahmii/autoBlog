@@ -1,11 +1,12 @@
 import Card from "@/components/Card";
 import { BbcArticle } from "@/types/types";
-import { sortByPublishedDescBBC } from "@/utils/arraytime";
 
 export default async function Blog() {
   const res = await fetch(`${process.env.NEXT_BBC_LINK}`, {
     next: { revalidate: 7200 },
   }).then((res) => res.json());
+  const sortByPublishedDescBBC = (a: BbcArticle, b: BbcArticle) =>
+    new Date(b.time).getTime() - new Date(a.time).getTime();
   res.data.sort(sortByPublishedDescBBC);
 
   return (
