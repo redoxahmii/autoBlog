@@ -21,12 +21,12 @@ export default async function blogDetail({ params }: Params) {
   return (
     <div className="flex mt-10 flex-col gap-8 pb-10 px-20">
       <div className="flex gap-5 flex-col">
-        <h1 className="text-5xl font-bold">{article.title}</h1>
-        <h3 className="text-xl truncate">{article.description}</h3>
+        <h1 className="lg:text-5xl text-2xl font-bold">{article.title}</h1>
+        <h3 className="lg:text-xl  truncate">{article.description}</h3>
       </div>
       <div className="flex flex-row-reverse justify-between relative">
-        <div className="w-full max-w-md mr-10 px-5 flex flex-col gap-3 top-4 sticky h-fit">
-          <h1 className="font-bold text-xl">Read more Articles</h1>
+        <div className="w-full max-w-md mr-10 px-5 flex-col gap-3 top-4 sticky h-fit lg:block hidden">
+          <h1 className="font-bold text-xl mb-2">Read more Articles</h1>
           <div className="flex flex-col gap-3">
             {data.randomArticles.map((article: HamariArticle) => (
               <ArticleSidebar

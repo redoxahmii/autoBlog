@@ -12,13 +12,13 @@ export default function CardHome({
 }) {
   return (
     <Link href={`articles/tribune/${type}/${article.docId}`}>
-      <div className="flex hover:bg-base-200 p-4 w-full max-w-2xl rounded-xl transition-all cursor-pointer justify-between items-center">
+      <div className="flex hover:bg-base-200 p-4 w-full lg:flex-row max-w-2xl rounded-xl transition-all cursor-pointer justify-between lg:gap-0 gap-4 items-center">
         <div className="max-w-xs">
           <h1 className="font-bold">{article.title}</h1>
-          <p className="text-ellipsis text-base-content/80 text-sm">
+          <p className="text-ellipsis hidden lg:block text-base-content/90 text-sm">
             {article.description}
           </p>
-          <p className="text-ellipsis text-base-content/80 text-sm">
+          <p className="text-ellipsis text-base-content/70 text-xs lg:mt-0 mt-3">
             {article.published ? convertTime(article.published) : null} ago
           </p>
         </div>

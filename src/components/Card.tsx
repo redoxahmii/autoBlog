@@ -44,7 +44,7 @@ export default function Card({
         <div className="card-body">
           <h2 className="card-title tracking-tighter text-3xl">{title}</h2>
           <p className="truncate">{description}</p>
-          <p>{time} ago</p>
+          <p className="text-sm text-base-content/70">{time} ago</p>
         </div>
       </div>
     </Link>

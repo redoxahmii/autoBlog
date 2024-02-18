@@ -6,7 +6,8 @@ import { sortByPublishedDescTri } from "@/utils/arraytime";
  * [TODO: Arrange all articles according to time]
  */
 export default async function Home() {
-  const type = "world";
+  const type1 = "world";
+  const type2 = "tv";
   const Foreign = await fetch(`${process.env.NEXT_TRIBUNE_LINK}`, {
     method: "POST",
     headers: {
@@ -14,7 +15,7 @@ export default async function Home() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      tribune: type,
+      tribune: type1,
     }),
     next: { revalidate: 7200 },
   }).then((res) => res.json());
@@ -26,7 +27,7 @@ export default async function Home() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      tribune: "sports",
+      tribune: type2,
     }),
     next: { revalidate: 7200 },
   }).then((res) => res.json());
@@ -36,16 +37,22 @@ export default async function Home() {
   Sports.data.sort(sortByPublishedDescTri);
 
   return (
-    <div className="flex mx-40">
-      <div className="flex-[3] p-2 flex-col flex mt-5 gap-2">
+    <div className="flex lg:mx-40 flex-col lg:flex-row">
+      <div className="lg:flex-[3] p-2 flex-col flex mt-5 gap-2">
+        <h1 className="text-center text-lg font-semibold tracking-tight underline">
+          Latest Pakistani News
+        </h1>
         {Foreign.data.map((article: TribuneArticle) => (
-          <CardHome article={article} type={type} key={article.docId} />
+          <CardHome article={article} type={type1} key={article.docId} />
         ))}
       </div>
-      <div className="flex-[3] p-2 mt-5">
+      <div className="lg:flex-[3] p-2 mt-5">
+        <h1 className="text-center text-lg font-semibold tracking-tight underline">
+          Latest Entertainment News
+        </h1>
         {Sports.data.map((article: TribuneArticle) => (
           // INFO: Have to pass type so that the link can be generated
-          <CardHome article={article} type="sports" key={article.docId} />
+          <CardHome article={article} type={type2} key={article.docId} />
         ))}
       </div>
     </div>
