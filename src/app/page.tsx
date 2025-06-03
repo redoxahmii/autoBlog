@@ -33,8 +33,8 @@ export default async function Home() {
   }).then((res) => res.json());
 
   // Sort the Foreign.data and Sports.data arrays
-  Foreign.data.sort(sortByPublishedDescTri);
-  Sports.data.sort(sortByPublishedDescTri);
+  Foreign?.data?.sort(sortByPublishedDescTri);
+  Sports?.data?.sort(sortByPublishedDescTri);
 
   return (
     <div className="flex lg:mx-40 flex-col lg:flex-row">
@@ -42,7 +42,7 @@ export default async function Home() {
         <h1 className="text-center text-lg font-semibold tracking-tight underline">
           Latest Pakistani News
         </h1>
-        {Foreign.data.map((article: TribuneArticle) => (
+        {Foreign?.data?.map((article: TribuneArticle) => (
           <CardHome article={article} type={type1} key={article.docId} />
         ))}
       </div>
@@ -50,7 +50,7 @@ export default async function Home() {
         <h1 className="text-center text-lg font-semibold tracking-tight underline">
           Latest Entertainment News
         </h1>
-        {Sports.data.map((article: TribuneArticle) => (
+        {Sports?.data?.map((article: TribuneArticle) => (
           // INFO: Have to pass type so that the link can be generated
           <CardHome article={article} type={type2} key={article.docId} />
         ))}

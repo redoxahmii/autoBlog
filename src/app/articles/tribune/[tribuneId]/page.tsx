@@ -10,7 +10,7 @@ export default async function TribuneTypes({ params }: Params) {
         {params.tribuneId.toUpperCase().charAt(0) + params.tribuneId.slice(1)}
       </h1>
       <div className="flex gap-10 items-center justify-center flex-wrap">
-        {allArticles.map((article: TribuneArticle) => (
+        {allArticles?.map((article: TribuneArticle) => (
           <Card
             published={article.published}
             description={article.description}
@@ -36,7 +36,7 @@ async function getAllArticles(type: string) {
     }),
     next: { revalidate: 7200 },
   }).then((res) => res.json());
-  res.data.sort(sortByPublishedDescTri);
+  res?.data?.sort(sortByPublishedDescTri);
   return res.data;
 }
 type Params = {
