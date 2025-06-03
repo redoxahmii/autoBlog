@@ -1,7 +1,9 @@
 import { HamariArticle } from "@/types/types";
 import Card from "@/components/Card";
 import { sortByPublishedDescTri } from "@/utils/arraytime";
+export const dynamic = 'force-dynamic'; // Opt out of static generation
 export default async function PakArticles() {
+
   const res = await fetch(`${process.env.NEXT_HAMARI_LINK}`, {
     next: { revalidate: 7200 },
   }).then((res) => res.json());
